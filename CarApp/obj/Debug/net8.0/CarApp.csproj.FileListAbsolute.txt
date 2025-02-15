@@ -12,3 +12,4 @@ G:\Datamatiker\Visual Studio Code\CarApp\CarApp\obj\Debug\net8.0\refint\CarApp.d
 G:\Datamatiker\Visual Studio Code\CarApp\CarApp\obj\Debug\net8.0\CarApp.pdb
 G:\Datamatiker\Visual Studio Code\CarApp\CarApp\obj\Debug\net8.0\CarApp.genruntimeconfig.cache
 G:\Datamatiker\Visual Studio Code\CarApp\CarApp\obj\Debug\net8.0\ref\CarApp.dll
+G:\Datamatiker\Visual Studio Code\CarApp\CarApp\obj\Debug\net8.0\CarApp.sourcelink.json
