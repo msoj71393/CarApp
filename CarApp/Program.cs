@@ -21,6 +21,7 @@ namespace CarApp
             public static string model = "";
             
             public static int kmStand = 0;
+            public static int newMileage = 0;
 
             public static double distance = 0;
 
@@ -102,6 +103,8 @@ namespace CarApp
             Variables.isEngineOn = false;
         }
 
+        //trip() asks for km/l, fuel cost and drive distance values before calculating fuel used, trip cost, and new mileage.
+
         private static void trip()
         { 
             Console.Clear();
@@ -117,7 +120,9 @@ namespace CarApp
             Variables.distance = Double.Parse(Console.ReadLine());
             Console.WriteLine("Distance is: " + Variables.distance + "km" + "\n");
 
-            if (Variables.isEngineOn == true)
+            //checks if engine is on before calculating fuel used, trip cost, and new mileage.
+
+            if (Variables.isEngineOn == true)  
                 {
                 double fuelNeed = Variables.distance / kmPerL;
 
@@ -129,12 +134,56 @@ namespace CarApp
 
                 Console.WriteLine("New mileage: " + (Variables.kmStand + Variables.distance).ToString("#") + "km" + "\n");
 
-                string s = String.Format("Fuel cost for " + Variables.distance + "km is " + tripCost.ToString("#.00") + "DKK" + "\n");   
+                Variables.newMileage = Convert.ToInt32(Variables.kmStand + Variables.distance);
+
+                string s = String.Format("Fuel cost for " + Variables.distance + "km is " + tripCost.ToString("#.00") + "DKK" + "\n");
+
+                isPalindrome();
                 }
             else
                 {
                 Console.WriteLine("Engine is off" + "\n");
                 }
+        }
+
+        private static void isPalindrome()
+        {
+            int origionalNumber, tempNumber, remainder, reverseNumber = 0;
+
+            Console.WriteLine("\n");
+            origionalNumber = Variables.newMileage;
+            Console.WriteLine("\n");
+
+            tempNumber = origionalNumber;
+
+            while (origionalNumber > 0)
+            {
+                remainder = origionalNumber % 10;
+                Console.WriteLine("Remainder = " + remainder);
+                reverseNumber = reverseNumber * 10 + remainder;
+                Console.WriteLine("Reverse number = " + reverseNumber);
+                origionalNumber = origionalNumber / 10;
+                Console.WriteLine("Origional number = " + origionalNumber);
+                Console.WriteLine("\n");
+            }
+
+            Console.WriteLine("After Loop");
+            Console.WriteLine("Find Reverse Number");
+            Console.WriteLine("Origional Number : {0}", tempNumber);
+            Console.WriteLine("Reverse number : {0}", reverseNumber);
+
+            Console.WriteLine("=========================");
+            if (tempNumber == reverseNumber)
+            {
+                Console.WriteLine("Milage is a palindrome");
+            }
+            else
+            {
+                Console.WriteLine("Milage is not a palindrom");
+            }
+
+            Console.WriteLine("\n\n");
+
         }
 
         private static void carInfo()
