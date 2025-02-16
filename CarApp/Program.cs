@@ -28,6 +28,16 @@ namespace CarApp
             public static bool isEngineOn = false;
         }
 
+        public static class Cars
+        {
+            public static List<string> brand = new List<string>();
+            public static List<string> model = new List<string>();
+            public static List<int> year = new List<int>();
+            public static List<string> owner = new List<string>();
+
+        }
+
+        //Main menu
         private static bool MainMenu()
         {
             Console.WriteLine("Choose an option:");
@@ -36,7 +46,8 @@ namespace CarApp
             Console.WriteLine("3) Engine Off");
             Console.WriteLine("4) Trip");
             Console.WriteLine("5) Car Information");
-            Console.WriteLine("6) Exit");
+            Console.WriteLine("6) Carpark");
+            Console.WriteLine("7) Exit");
             Console.Write("\r\nSelect an option: ");
 
             switch (Console.ReadLine())
@@ -57,6 +68,9 @@ namespace CarApp
                     carInfo();
                     return true;
                 case "6":
+                    carPark();
+                    return true;
+                case "7":
                     return false;
                 default:
                     return true;
@@ -66,17 +80,18 @@ namespace CarApp
         private static void carDetails()
         {
             Console.Clear();
+
             Console.WriteLine("Enter brand: "); //asks for input.
             Variables.brand = Console.ReadLine(); //stores input in a variable.
-            Console.WriteLine("brand is: " + Variables.brand + "\n");
+            Console.WriteLine("brand is: " + Variables.brand + "\n"); //writes text and stored varible in console also starts a new line.
 
             Console.WriteLine("Enter model: ");
             Variables.model = Console.ReadLine(); //stores input in a variable.
-            Console.WriteLine("model is: " + Variables.model + "\n");
+            Console.WriteLine("model is: " + Variables.model + "\n"); //writes text and stored varible in console also starts a new line.
 
             Console.WriteLine("Enter year: "); //asks for input.
             int year = Convert.ToInt32(Console.ReadLine()); //stores input in a variable.
-            Console.WriteLine("year is: " + year + "\n");
+            Console.WriteLine("year is: " + year + "\n"); //writes text and stored varible in console also starts a new line.
 
             Console.WriteLine("Enter gear type: "); //asks for input.
             char gearType = Console.ReadLine()[0]; //stores input in a variable.
@@ -84,19 +99,21 @@ namespace CarApp
 
             Console.WriteLine("Enter fuel type: "); //asks for input.
             char fuelType = Console.ReadLine()[0]; //stores input in a variable.
-            Console.WriteLine("fuel type is: " + fuelType + "\n");
+            Console.WriteLine("fuel type is: " + fuelType + "\n"); //writes text and stored varible in console also starts a new line.
 
             Console.WriteLine("Enter mileage: "); //asks for input.
             Variables.kmStand = Convert.ToInt32(Console.ReadLine()); //stores input in a variable.
-            Console.WriteLine("mileage is: " + Variables.kmStand + "\n");
+            Console.WriteLine("mileage is: " + Variables.kmStand + "\n"); //writes text and stored varible in console also starts a new line.
         }
 
+        //Start engine
         private static void engineStart()
         {
             Console.WriteLine("Engine on: " + "\n");
             Variables.isEngineOn = true;
         }
-
+        
+        //Stops engine
         private static void engineOff()
         {
             Console.WriteLine("Engine off: " + "\n");
@@ -104,7 +121,6 @@ namespace CarApp
         }
 
         //trip() asks for km/l, fuel cost and drive distance values before calculating fuel used, trip cost, and new mileage.
-
         private static void trip()
         { 
             Console.Clear();
@@ -121,7 +137,6 @@ namespace CarApp
             Console.WriteLine("Distance is: " + Variables.distance + "km" + "\n");
 
             //checks if engine is on before calculating fuel used, trip cost, and new mileage.
-
             if (Variables.isEngineOn == true)  
                 {
                 double fuelNeed = Variables.distance / kmPerL;
@@ -146,6 +161,7 @@ namespace CarApp
                 }
         }
 
+        //Checks to see if the mileage of the car in question is a palindrome.
         private static void isPalindrome()
         {
             int origionalNumber, tempNumber, remainder, reverseNumber = 0;
@@ -167,8 +183,6 @@ namespace CarApp
                 Console.WriteLine("\n");
             }
 
-            Console.WriteLine("After Loop");
-            Console.WriteLine("Find Reverse Number");
             Console.WriteLine("Origional Number : {0}", tempNumber);
             Console.WriteLine("Reverse number : {0}", reverseNumber);
 
@@ -183,9 +197,9 @@ namespace CarApp
             }
 
             Console.WriteLine("\n\n");
-
         }
 
+        //presents the car data is a table
         private static void carInfo()
         {
             Console.Clear();
@@ -195,5 +209,31 @@ namespace CarApp
             Console.WriteLine();
         }
 
+        //Let's us add as many cars as we want to our carpark and writes out data on the cars.
+        private static void carPark()
+        {
+            Console.WriteLine("Enter number of cars: ");
+            int numbCars = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 0; i < numbCars; i++)
+            {
+                Console.WriteLine("Enter owner of car: ");
+                Cars.owner.Add(Console.ReadLine());
+
+                Console.WriteLine("Enter brand: ");
+                Cars.brand.Add(Console.ReadLine());
+
+                Console.WriteLine("Enter model: ");
+                Cars.model.Add(Console.ReadLine());
+
+                Console.WriteLine("Enter year: ");
+                Cars.year.Add(Convert.ToInt32(Console.ReadLine()));
+            }
+
+            for (int i = 0; i < Cars.brand.Count; i++)
+            {
+                Console.WriteLine(Cars.owner[i] + " " + Cars.brand[i] + " " + Cars.model[i] + " " + Cars.year[i] + "\n");
+            }
+        }
     }
 }
