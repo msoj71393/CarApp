@@ -1,4 +1,5 @@
 ﻿using System.Data.SqlTypes;
+using System.Diagnostics;
 using System.Reflection;
 using System.Xml;
 
@@ -47,7 +48,8 @@ namespace CarApp
             Console.WriteLine("4) Trip");
             Console.WriteLine("5) Car Information");
             Console.WriteLine("6) Carpark");
-            Console.WriteLine("7) Exit");
+            Console.WriteLine("7) Domain Model");
+            Console.WriteLine("8) Exit");
             Console.Write("\r\nSelect an option: ");
 
             switch (Console.ReadLine())
@@ -71,6 +73,9 @@ namespace CarApp
                     carPark();
                     return true;
                 case "7":
+                    domainModel();
+                    return true;
+                case "8":
                     return false;
                 default:
                     return true;
@@ -232,8 +237,19 @@ namespace CarApp
 
             for (int i = 0; i < Cars.brand.Count; i++)
             {
-                Console.WriteLine(Cars.owner[i] + " " + Cars.brand[i] + " " + Cars.model[i] + " " + Cars.year[i] + "\n");
+                Console.WriteLine(Cars.owner[i] + " ".PadRight(10) + Cars.brand[i] + " ".PadRight(10) + Cars.model[i] + " ".PadRight(10) + Cars.year[i] + "\n");
             }
+        }
+
+        private static void domainModel()
+        {
+            var p = new Process();
+            p.StartInfo = new ProcessStartInfo(@"G:\\Datamatiker\\Visual Studio Code\\CarApp\\CarApp\\DomainModelCarApp.png")
+            {
+                UseShellExecute = true
+            };
+            p.Start();
+
         }
     }
 }

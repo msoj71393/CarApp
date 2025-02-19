@@ -5,6 +5,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{1EAD2B10-5E41-4D07-8FC8-78554A78087C}|CarApp\\CarApp.csproj|g:\\datamatiker\\visual studio code\\carapp\\carapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1EAD2B10-5E41-4D07-8FC8-78554A78087C}|CarApp\\CarApp.csproj|solutionrelative:carapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1EAD2B10-5E41-4D07-8FC8-78554A78087C}|CarApp\\CarApp.csproj|g:\\datamatiker\\visual studio code\\carapp\\carapp\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{1EAD2B10-5E41-4D07-8FC8-78554A78087C}|CarApp\\CarApp.csproj|solutionrelative:carapp\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +18,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "README.md",
+              "DocumentMoniker": "G:\\Datamatiker\\Visual Studio Code\\CarApp\\CarApp\\README.md",
+              "RelativeDocumentMoniker": "CarApp\\README.md",
+              "ToolTip": "G:\\Datamatiker\\Visual Studio Code\\CarApp\\CarApp\\README.md",
+              "RelativeToolTip": "CarApp\\README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-02-19T07:55:56.783Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +41,7 @@
               "RelativeDocumentMoniker": "CarApp\\Program.cs",
               "ToolTip": "G:\\Datamatiker\\Visual Studio Code\\CarApp\\CarApp\\Program.cs",
               "RelativeToolTip": "CarApp\\Program.cs",
-              "ViewState": "AgIAAMUAAAAAAAAAAAAewO8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAM0AAAAAAAAAAAAQwPIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-05T09:58:54.193Z",
               "EditorCaption": ""
