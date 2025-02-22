@@ -1,44 +1,205 @@
-﻿using System.Data.SqlTypes;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Reflection;
-using System.Xml;
+using System.Runtime.CompilerServices;
+using System.Security.AccessControl;
+using System.Security.Cryptography.X509Certificates;
+using static test.Program;
 
-namespace CarApp
+namespace test
 {
     internal class Program
-    {   
+    {
+
+
+        public class Car
+        {
+            private string brand = "";
+            private string model = "";
+            private int year;
+            private char gearType;
+            private char fuelType;
+            private int mileage;
+            private int newMileage;
+            private double distance;
+            private bool isEngineOn = false;
+            private double kmPerL;
+            private double fuelPrice;
+            private string owner = "";
+
+            public Car(string owner, string brand, string model, int year)
+            {
+                this.owner = owner;
+                this.brand = brand;
+                this.model = model;
+                this.year = year;
+            }
+
+            public string Brand
+            {
+                get
+                {
+                    return brand;
+                }
+                set
+                {
+                    brand = value;
+                }
+
+            }
+
+            public string Model
+            {
+                get
+                {
+                    return model;
+                }
+                set
+                {
+                    model = value;
+                }
+            }
+
+            public int Year
+            {
+                get
+                {
+                    return year;
+                }
+                set
+                {
+                    year = value;
+                }
+            }
+
+            public char GearType
+            {
+                get
+                {
+                    return gearType;
+                }
+                set
+                {
+                    gearType = value;
+                }
+            }
+
+            public char FuelType
+            {
+                get
+                {
+                    return fuelType;
+                }
+                set
+                {
+                    fuelType = value;
+                }
+            }
+
+            public int Mileage
+            {
+                get
+                {
+                    return mileage;
+                }
+                set
+                {
+                    mileage = value;
+                }
+            }
+
+            public int NewMileage
+            {
+                get
+                {
+                    return newMileage;
+                }
+                set
+                {
+                    newMileage = value;
+                }
+            }
+
+            public double Distance
+            {
+                get
+                {
+                    return distance;
+                }
+                set
+                {
+                    distance = value;
+                }
+            }
+
+            public bool IsEngineOn
+            {
+                get
+                {
+                    return isEngineOn;
+                }
+                set
+                {
+                    isEngineOn = value;
+                }
+            }
+
+            public double KmPerL
+            {
+                get
+                {
+                    return kmPerL;
+                }
+                set
+                {
+                    kmPerL = value;
+                }
+            }
+
+            public double FuelPrice
+            {
+                get
+                {
+                    return fuelPrice;
+                }
+                set
+                {
+                    fuelPrice = value;
+                }
+            }
+
+            public string Owner
+            {
+                get
+                {
+                    return owner;
+                }
+                set
+                {
+                    owner = value;
+                }
+            }
+
+            //Is needed to correctly display output in carPark().
+            public override string ToString()
+            {
+                return $"Owner: {this.Owner}, Brand: {this.Brand}, Model: {this.Model}, Year: {this.Year}";
+            }
+        }
+
+        //Declares and instance of car.
+        static Car car;
+
         static void Main(string[] args)
         {
+            car = new Car("", "", "", 0);
+
             bool showMenu = true;
             while (showMenu)
             {
                 showMenu = MainMenu();
             }
         }
-        public static class Car
-        {
-            public static string brand = "";
 
-            public static string model = "";
-
-            public static int kmStand = 0;
-            public static int newMileage = 0;
-
-            public static double distance = 0;
-
-            public static bool isEngineOn = false;
-
-        }
-
-
-
-        public static class Cars
-        {
-            public static List<string> brand = new List<string>();
-            public static List<string> model = new List<string>();
-            public static List<int> year = new List<int>();
-            public static List<string> owner = new List<string>();
-        }
         private static bool MainMenu()
         {
             Console.WriteLine("Choose an option:");
@@ -86,94 +247,90 @@ namespace CarApp
         {
             Console.Clear();
 
-
             Console.WriteLine("Enter brand: "); //asks for input.
-            Car.brand = Console.ReadLine(); //stores input in a variable.
-            Console.WriteLine("brand is: " + Car.brand + "\n"); //writes text and stored varible in console also starts a new line.
+            car.Brand = Console.ReadLine(); //stores input in a variable.
+            Console.WriteLine($"brand name is {car.Brand} \n"); //writes text and stored varible in console also starts a new line.
 
             Console.WriteLine("Enter model: ");
-            Car.model = Console.ReadLine(); //stores input in a variable.
-            Console.WriteLine("model is: " + Car.model + "\n"); //writes text and stored varible in console also starts a new line.
+            car.Model = Console.ReadLine();
+            Console.WriteLine($"model name is {car.Model} \n");
 
-            Console.WriteLine("Enter year: "); //asks for input.
-            int year = Convert.ToInt32(Console.ReadLine()); //stores input in a variable.
-            Console.WriteLine("year is: " + year + "\n"); //writes text and stored varible in console also starts a new line.
+            Console.WriteLine("Enter year: ");
+            car.Year = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"year is {car.Year} \n");
 
-            Console.WriteLine("Enter gear type: "); //asks for input.
-            char gearType = Console.ReadLine()[0]; //stores input in a variable.
-            Console.WriteLine("gear type is: " + gearType + "\n"); //writes text and stored varible in console also starts a new line.
+            Console.WriteLine("Enter gear type: ");
+            car.GearType = Console.ReadLine()[0];
+            Console.WriteLine($"gear type is {car.GearType} \n");
 
-            Console.WriteLine("Enter fuel type: "); //asks for input.
-            char fuelType = Console.ReadLine()[0]; //stores input in a variable.
-            Console.WriteLine("fuel type is: " + fuelType + "\n"); //writes text and stored varible in console also starts a new line.
+            Console.WriteLine("Enter fuel type: ");
+            car.FuelType = Console.ReadLine()[0];
+            Console.WriteLine($"fuel type is {car.FuelType} \n");
 
-            Console.WriteLine("Enter mileage: "); //asks for input.
-            Car.kmStand = Convert.ToInt32(Console.ReadLine()); //stores input in a variable.
-            Console.WriteLine("mileage is: " + Car.kmStand + "\n"); //writes text and stored varible in console also starts a new line.
+            Console.WriteLine("Enter mileage: ");
+            car.Mileage = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"mileage is {car.Mileage} \n");
         }
 
         //Start engine
         private static void engineStart()
         {
             Console.WriteLine("Engine on: " + "\n"); //Writes in console that the car is on and creates a new line.
-            Car.isEngineOn = true; //Turns the bool isEngineOn to true.
+            car.IsEngineOn = true; //Turns the bool isEngineOn to true.
         }
-        
+
         //Stops engine
         private static void engineOff()
         {
             Console.WriteLine("Engine off: " + "\n"); //Writes in console that the car is on and creates a new line.
-            Car.isEngineOn = false; //Turns the bool isEngineOn to false.
+            car.IsEngineOn = false; //Turns the bool isEngineOn to false.
         }
 
-        //trip() asks for km/l, fuel cost and drive distance values before calculating fuel used, trip cost, and new mileage.
         private static void trip()
-        { 
+        {
             Console.Clear();
+
             Console.WriteLine("Enter km/l: "); //asks for input.
-            double kmPerL = Double.Parse(Console.ReadLine()); //stores input in a variable.
-            Console.WriteLine("km/l is: " + kmPerL + "\n"); //writes text and stored varible in console also starts a new line.
+            car.KmPerL = Double.Parse(Console.ReadLine()); //stores input in a variable.
+            Console.WriteLine($"km/l is: {car.KmPerL} \n"); //writes text and stored varible in console also starts a new line.
 
             Console.WriteLine("Enter fuel cost: "); //asks for input.
-            double fuelPrice = Double.Parse(Console.ReadLine()); //stores input in a variable.
-            Console.WriteLine("Fuel cost is: " + fuelPrice + "\n"); //writes text and stored varible in console also starts a new line.
+            car.FuelPrice = Double.Parse(Console.ReadLine()); //stores input in a variable.
+            Console.WriteLine($"km/l is: {car.FuelPrice} \n"); //writes text and stored varible in console also starts a new line.
 
             Console.WriteLine("Distance: ");
-            Car.distance = Double.Parse(Console.ReadLine());
-            Console.WriteLine("Distance is: " + Car.distance + "km" + "\n");
+            car.Distance = Double.Parse(Console.ReadLine());
+            Console.WriteLine($"Distance is: {car.Distance} km \n");
 
-            //checks if engine is on before calculating fuel used, trip cost, and new mileage.
-            if (Car.isEngineOn == true) //Check if isEngineOn is true if not it goes to the else statement.
+            if (car.IsEngineOn == true) //Check if isEngineOn is true if not it goes to the else statement.
             {
-                double fuelNeed = Car.distance / kmPerL;  //Calculates fuel need for the given distance.
+                double fuelNeed = car.Distance / car.KmPerL;  //Calculates fuel need for the given distance.
 
                 Console.WriteLine("Fuel used: " + fuelNeed.ToString("#.00") + "liter" + "\n"); //Writes the fuel needed per liter with two decimalplaces.
 
-                double tripCost = fuelNeed * fuelPrice; //Calculates the fuel price for the given distance.
+                double tripCost = fuelNeed * car.FuelPrice; //Calculates the fuel price for the given distance.
 
                 Console.WriteLine("Trip cost: " + tripCost.ToString("#.00") + "kr." + "\n"); //Writes the fuel price in kr. with two decimalplaces.
 
-                Console.WriteLine("New mileage: " + (Car.kmStand + Car.distance).ToString("#") + "km" + "\n"); //Writes the need mileage with tw o decimalplaces in km.
+                Console.WriteLine("New mileage: " + (car.Mileage + car.Distance).ToString("#") + "km" + "\n"); //Writes the need mileage with tw o decimalplaces in km.
 
-                Car.newMileage = Convert.ToInt32(Car.kmStand + Car.distance); //Stores the need mileage in the variable newMileage.
+                car.NewMileage = Convert.ToInt32(car.Mileage + car.Distance); //Stores the need mileage in the variable newMileage.
 
-                string s = String.Format("Fuel cost for " + Car.distance + "km is " + tripCost.ToString("#.00") + "DKK" + "\n"); //Writes a string with fuel cost per km and the price in DKK.
+                string s = String.Format("Fuel cost for " + car.Distance + "km is " + tripCost.ToString("#.00") + "DKK" + "\n"); //Writes a string with fuel cost per km and the price in DKK.
 
                 isPalindrome(); //Call isPalindrome method.
-                }
+            }
             else
-                {
+            {
                 Console.WriteLine("Engine is off" + "\n"); //Writes Engine is off if the isEngineOn statement is false.
-                }
+            }
         }
-
-        //Checks to see if the mileage of the car in question is a palindrome.
         private static void isPalindrome()
         {
             int origionalNumber, tempNumber, remainder, reverseNumber = 0;
 
             Console.WriteLine("\n");
-            origionalNumber = Car.newMileage;
+            origionalNumber = car.NewMileage;
             Console.WriteLine("\n");
 
             tempNumber = origionalNumber;
@@ -209,36 +366,41 @@ namespace CarApp
         private static void carInfo()
         {
             Console.Clear();
+
             Console.WriteLine("Brand".PadRight(15) + "| Model".PadRight(15) + "| Mileage" + "\n");
             Console.WriteLine("-----------------------------------------------" + "\n");
-            Console.WriteLine(Car.brand.PadRight(15) + "| " + Car.model.PadRight(13) + "| " + (Car.kmStand + Car.distance).ToString("#"));
+            Console.WriteLine(car.Brand.PadRight(15) + "| " + car.Model.PadRight(13) + "| " + (car.Mileage + car.Distance).ToString("#"));
             Console.WriteLine();
         }
 
         //Let's us add as many cars as we want to our carpark and writes out data on the cars.
-        private static void carPark()
+        public static void carPark()
         {
+            List<Car> carList = new List<Car>();
+
             Console.WriteLine("Enter number of cars: ");
             int numbCars = Convert.ToInt32(Console.ReadLine());
 
             for (int i = 0; i < numbCars; i++)
             {
-                Console.WriteLine("Enter owner of car: ");
-                Cars.owner.Add(Console.ReadLine());
+                Console.WriteLine("Enter owner: ");
+                string owner = Console.ReadLine();
 
                 Console.WriteLine("Enter brand: ");
-                Cars.brand.Add(Console.ReadLine());
+                string brand = Console.ReadLine();
 
                 Console.WriteLine("Enter model: ");
-                Cars.model.Add(Console.ReadLine());
+                string model = Console.ReadLine();
 
                 Console.WriteLine("Enter year: ");
-                Cars.year.Add(Convert.ToInt32(Console.ReadLine()));
+                int year = Convert.ToInt32(Console.ReadLine());
+
+                carList.Add(new Car(owner, brand, model, year));
             }
 
-            for (int i = 0; i < Cars.brand.Count; i++)
+            foreach (var car in carList)
             {
-                Console.WriteLine(Cars.owner[i] + " ".PadRight(10) + Cars.brand[i] + " ".PadRight(10) + Cars.model[i] + " ".PadRight(10) + Cars.year[i] + "\n");
+                Console.WriteLine(car);
             }
         }
 
@@ -246,55 +408,13 @@ namespace CarApp
         private static void domainModel()
         {
             var p = new Process();
-            p.StartInfo = new ProcessStartInfo(@"G:\\Datamatiker\\Visual Studio Code\\CarApp\\CarApp\\DomainModelCarApp.png")
+            p.StartInfo = new ProcessStartInfo(@"G:\Datamatiker\Visual Studio Code\test\test\DomainModelCarApp.png") //Relative path of the png.
             {
                 UseShellExecute = true
             };
             p.Start();
-
         }
     }
 }
-
-//public class Car
-//{
-//    public string Brand { get; set; }
-//    public string Model { get; set; }
-//    public int Year { get; set; }
-//    public Car(string brand, string model, int year)
-//    {
-//        Brand = brand;
-//        Model = model;
-//        Year = year;
-//    }
-//}
-
-//public class CarCollection
-//{
-//    private List<Car> cars = new List<Car>();
-//    public void AddCar(Car car)
-//    {
-//        cars.Add(car);
-//    }
-//    public void RemoveCar(Car car)
-//    {
-//        cars.Remove(car);
-//    }
-//    public List<Car> GetCars()
-//    {
-//        return cars;
-//    }
-//    public void RemoveCar(int id)
-//    {
-//        cars.RemoveAt(id);
-//    }
-
-//int index = 0;
-//        foreach (var car in carCollection.GetCars())
-//        {
-//            Console.WriteLine($"Id: {index} Make: {car.Make}, Model: {car.Model}, Year: {car.Year}");
-//            index++;
-//        }
-//}
 
 
