@@ -3,14 +3,12 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Security.AccessControl;
 using System.Security.Cryptography.X509Certificates;
-using static test.Program;
+using static CarApp.Program;
 
-namespace test
+namespace CarApp
 {
     internal class Program
     {
-
-
         public class Car
         {
             private string brand = "";
@@ -408,7 +406,7 @@ namespace test
         private static void domainModel()
         {
             var p = new Process();
-            p.StartInfo = new ProcessStartInfo(@"G:\Datamatiker\Visual Studio Code\test\test\DomainModelCarApp.png") //Relative path of the png.
+            p.StartInfo = new ProcessStartInfo(@"G:\Datamatiker\Visual Studio Code\test\test\DomainModelCarApp.png") //path of the png.
             {
                 UseShellExecute = true
             };
