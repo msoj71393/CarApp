@@ -42,139 +42,62 @@ namespace CarApp
                 {
                     brand = value;
                 }
-
             }
 
             public string Model
             {
-                get
-                {
-                    return model;
-                }
-                set
-                {
-                    model = value;
-                }
+                get => model;
+                set => model = value;
             }
 
             public int Year
             {
-                get
-                {
-                    return year;
-                }
-                set
-                {
-                    year = value;
-                }
+                get; set;
             }
 
             public char GearType
             {
-                get
-                {
-                    return gearType;
-                }
-                set
-                {
-                    gearType = value;
-                }
+                get; set;
             }
 
             public char FuelType
             {
-                get
-                {
-                    return fuelType;
-                }
-                set
-                {
-                    fuelType = value;
-                }
+                get; set;
             }
 
             public int Mileage
             {
-                get
-                {
-                    return mileage;
-                }
-                set
-                {
-                    mileage = value;
-                }
+                get; set;
             }
 
             public int NewMileage
             {
-                get
-                {
-                    return newMileage;
-                }
-                set
-                {
-                    newMileage = value;
-                }
+                get; set;
             }
 
             public double Distance
             {
-                get
-                {
-                    return distance;
-                }
-                set
-                {
-                    distance = value;
-                }
+                get; set;
             }
 
             public bool IsEngineOn
             {
-                get
-                {
-                    return isEngineOn;
-                }
-                set
-                {
-                    isEngineOn = value;
-                }
+                get; set;
             }
 
             public double KmPerL
             {
-                get
-                {
-                    return kmPerL;
-                }
-                set
-                {
-                    kmPerL = value;
-                }
+                get; set;
             }
 
             public double FuelPrice
             {
-                get
-                {
-                    return fuelPrice;
-                }
-                set
-                {
-                    fuelPrice = value;
-                }
+                get; set;
             }
 
             public string Owner
             {
-                get
-                {
-                    return owner;
-                }
-                set
-                {
-                    owner = value;
-                }
+                get; set;
             }
 
             //Is needed to correctly display output in carPark().
@@ -414,5 +337,3 @@ namespace CarApp
         }
     }
 }
-
-
