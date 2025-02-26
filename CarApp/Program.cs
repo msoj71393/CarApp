@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Security.AccessControl;
 using System.Security.Cryptography.X509Certificates;
+using Microsoft.VisualBasic;
 using static CarApp.Program;
 
 namespace CarApp
@@ -82,16 +83,20 @@ namespace CarApp
 
             Console.WriteLine("Enter year: ");
             car.Year = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine($"year is {car.Year} \n");
+            Console.WriteLine("Enter valid year");
 
-            Console.WriteLine("Enter gear type: ");
-            car.GearType = Console.ReadLine()[0];
-            Console.WriteLine($"gear type is {car.GearType} \n");
+            do {
+                Console.WriteLine("Enter gear type, 'A' for automatic or 'M' for manual: ");
+                car.GearType = Console.ReadLine()[0];
+                Console.WriteLine($"gear type is {car.GearType} \n");
+            } while (car.GearType != 'A' && car.GearType != 'M');
 
-            Console.WriteLine("Enter fuel type: ");
-            car.FuelType = Console.ReadLine()[0];
-            Console.WriteLine($"fuel type is {car.FuelType} \n");
-
+            do {
+                Console.WriteLine("Enter fuel type, 'B' for benzin or 'D' for disel: ");
+                car.FuelType = Console.ReadLine()[0];
+                Console.WriteLine($"fuel type is {car.FuelType} \n");
+            } while (car.FuelType != 'B' && car.FuelType != 'D');
+            
             Console.WriteLine("Enter mileage: ");
             car.Mileage = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine($"mileage is {car.Mileage} \n");
