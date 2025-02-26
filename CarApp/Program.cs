@@ -81,9 +81,22 @@ namespace CarApp
             car.Model = Console.ReadLine();
             Console.WriteLine($"model name is {car.Model} \n");
 
-            Console.WriteLine("Enter year: ");
-            car.Year = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter valid year");
+
+            //Cannot figure out how to check if a string is input into the readline statement, but for now it checks the date from the first automobile and forward.
+            do {
+                Console.WriteLine("Enter year: ");
+                car.Year = Convert.ToInt32(Console.ReadLine());
+
+                if (car.Year >= 1885)
+                {
+                    Console.WriteLine($"Year is {car.Year} \n");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Enter a valid date");
+                }
+            } while (true);
 
             do {
                 Console.WriteLine("Enter gear type, 'A' for automatic or 'M' for manual: ");
