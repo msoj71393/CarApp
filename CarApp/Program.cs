@@ -92,7 +92,7 @@ namespace CarApp
             } while (car.GearType != 'A' && car.GearType != 'M');
 
             do {
-                Console.WriteLine("Enter fuel type, 'B' for benzin or 'D' for disel: ");
+                Console.WriteLine("Enter fuel type, 'P' for Petrol or 'D' for diesel: ");
                 car.FuelType = Console.ReadLine()[0];
                 Console.WriteLine($"fuel type is {car.FuelType} \n");
             } while (car.FuelType != 'B' && car.FuelType != 'D');
